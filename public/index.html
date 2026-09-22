@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jev Showcase — three ways to ask</title>
+  <meta name="description" content="Interactive showcase of TypeSafe's Jev System One model: choice, score and noul questions via OpenRouter.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b1120'/%3E%3Cpath d='M19 8v11a5 5 0 0 1-10 0' fill='none' stroke='%2322c55e' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fira+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to playground</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <span class="brand-name">Jev</span>
+        <span class="brand-sub">System One showcase</span>
+      </div>
+      <div class="topbar-meta">
+        <span class="pill pill-mono" id="model-pill" title="Model alias sent to OpenRouter">~typesafe/jev-latest</span>
+        <span class="pill" id="key-pill" role="status"><span class="dot" aria-hidden="true"></span><span id="key-pill-text">checking key…</span></span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">Jev showcase: choice, score and noul questions via OpenRouter</h1>
+      <ol class="flow" aria-label="How a Jev request works">
+        <li class="flow-step"><span class="flow-k">state</span><span class="flow-v">text or JSON your app already has</span></li>
+        <li class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+        <li class="flow-step"><span class="flow-k">questions</span><span class="flow-v">choice · score · noul, any mix in one request</span></li>
+        <li class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+        <li class="flow-step"><span class="flow-k">answers</span><span class="flow-v">typed values + probabilities, ready for an <code>if</code></span></li>
+      </ol>
+    </section>
+
+    <hr class="divider">
+
+    <div id="key-banner" class="banner" role="alert" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>
+        <strong>No OpenRouter key configured.</strong>
+        Copy <code>.env.example</code> to <code>.env</code>, set <code>OPENROUTER_API_KEY</code>, and restart with <code>npm start</code>.
+        You can still explore the requests each mode builds.
+      </div>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Question types" id="tablist"></div>
+    <div id="panels"></div>
+  </main>
+
+  <footer class="wrap footer">
+    <p>
+      Built from the
+      <a href="https://openrouter.ai/docs/guides/community/typesafe-sdk" target="_blank" rel="noopener">OpenRouter System One docs</a>
+      and <a href="https://openrouter.ai/labs/jev" target="_blank" rel="noopener">Jev Lab</a>.
+      Requests go to <code id="footer-endpoint">openrouter.ai/api/v1/systemone</code> through this app's local proxy; your key stays on the server.
+    </p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

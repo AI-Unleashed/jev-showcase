@@ -1,0 +1,21 @@
+{
+  "name": "jev-showcase",
+  "version": "1.0.0",
+  "description": "Showcase of the three ways to use TypeSafe's Jev System One model (choice, score, noul) via OpenRouter",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "AI-Unleashed",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AI-Unleashed/jev-showcase.git"
+  },
+  "homepage": "https://github.com/AI-Unleashed/jev-showcase#readme",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
