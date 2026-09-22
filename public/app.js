@@ -810,7 +810,7 @@ function renderViz(mode) {
         .map(
           (name) => `
         <article class="answer-card" data-type="${esc(questions[name].type)}">
-          <header><code>${esc(name)}</code><span class="tag">${esc(questions[name].type)}</span></header>
+          <header><code>${esc(name).replace(/_/g, '_<wbr>')}</code><span class="tag">${esc(questions[name].type)}</span></header>
           <p class="answer-q">${esc(questions[name].instructions)}</p>
           ${renderAnswer(name, answers[name], questions[name], mode)}
         </article>`,

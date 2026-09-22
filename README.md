@@ -2,6 +2,8 @@
 
 An interactive playground for **Jev**, TypeSafe's "System One" decision model, called through **OpenRouter** with the `~typesafe/jev-latest` alias. One Node file, three static files, no dependencies.
 
+![The All-at-once tab: one request answers a choice, a score and two nouls about a refund ticket, with measured latency and billed cost](docs/screenshot.png)
+
 Jev doesn't generate text. You send it your app's `state` plus typed `questions`, and it returns typed answers with probabilities. There is nothing to parse or validate; you branch on the value:
 
 ```js
@@ -135,7 +137,6 @@ Where the LLM still wins: writing the reply, reasoning through a novel case, ima
 - **The key is server-side only.** `server.js` reads `OPENROUTER_API_KEY` from the environment and adds the `Authorization` header itself. The browser only ever talks to `/api/decide`; `/api/config` exposes a `hasKey` boolean, never the key. The static handler serves `public/` only, so `.env` and `server.js` are unreachable over HTTP.
 - **`.env` is gitignored.** Before any push, `git status` should not list it.
 - **A public deploy is an open proxy on your credits.** Anyone who can reach `/api/decide` spends them. The server binds to `127.0.0.1` by default and rate-limits the endpoint (`RATE_LIMIT_PER_MIN`, default 120 per client). If you host it publicly, put it behind auth or use an OpenRouter key with a low credit limit.
-- No license is included yet; pick one before making the repo public.
 
 ## Video assets
 
@@ -153,6 +154,7 @@ public/index.html    page shell
 public/app.js        mode definitions, examples, editors, visualizations
 public/styles.css    design tokens and layout
 video/               full-screen code slide for the video
+docs/screenshot.png  README image
 .claude/launch.json  dev-server config for the Claude desktop app's preview pane
 ```
 
@@ -165,3 +167,7 @@ video/               full-screen code slide for the video
 - [Flavio Copes — A deep dive into Jev](https://flaviocopes.com/jev/)
 - [LangChain — A guide to TypeSafe AI's System One model](https://www.langchain.com/blog/building-a-harness-with-jev)
 - [DEV — Routing OpenCode tasks with Jev](https://dev.to/lbobylev/routing-opencode-tasks-with-jev-2c4n)
+
+## License
+
+[MIT](LICENSE)

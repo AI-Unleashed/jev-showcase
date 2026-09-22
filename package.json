@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Showcase of the three ways to use TypeSafe's Jev System One model (choice, score, noul) via OpenRouter",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "author": "AI-Unleashed",
   "repository": {
     "type": "git",
